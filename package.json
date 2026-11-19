@@ -1,0 +1,43 @@
+{
+  "name": "express-search-service",
+  "version": "1.0.0",
+  "description": "product search microservice using elastic search, ts, redis streams, and bulk import product data into elastic search",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagarajsaravanan/express-search-service.git"
+  },
+  "keywords": [
+    "express",
+    "elastic",
+    "search",
+    "redis",
+    "stream",
+    "typescript",
+    "interface",
+    "microservice",
+    "bulk",
+    "import"
+  ],
+  "author": "NGRJ",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
