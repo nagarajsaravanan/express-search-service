@@ -4,11 +4,12 @@ import {
   connectElasticsearch,
   disconnectElasticsearch,
 } from "./config/elasticsearch.config";
+import { connectRedis, disconnectRedis } from "./config/redis.config";
 
 const startServer = async () => {
   try {
-    // Connect to Elasticsearch
-    await connectElasticsearch();
+    // Connect to external services (Elasticsearch & Redis)
+    await Promise.all([connectElasticsearch(), connectRedis()]);
 
     const server = app.listen(env.PORT, () => {
       console.log(`🚀 [Search Service] Server running on port ${env.PORT} in ${env.NODE_ENV} mode`);
@@ -18,7 +19,7 @@ const startServer = async () => {
     // Graceful Shutdown
     const handleShutdown = async (signal: string) => {
       console.log(`\n🛑 Received ${signal}. Shutting down gracefully...`);
-      await disconnectElasticsearch();
+      await Promise.all([disconnectElasticsearch(), disconnectRedis()]);
       server.close(() => {
         console.log("💤 HTTP server closed.");
         process.exit(0);

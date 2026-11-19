@@ -11,6 +11,8 @@ export const env = {
   ELASTICSEARCH_PASSWORD: process.env.ELASTICSEARCH_PASSWORD || "",
   ELASTICSEARCH_API_KEY: process.env.ELASTICSEARCH_API_KEY || "",
   ELASTICSEARCH_INDEX: process.env.ELASTICSEARCH_INDEX || "products",
+  REDIS_URL: process.env.REDIS_URL || "redis://127.0.0.1:6379",
+  REDIS_STREAM_KEY: process.env.REDIS_STREAM_KEY || "product_stream",
 };
 
 export default env;
